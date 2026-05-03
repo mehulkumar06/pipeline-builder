@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111110;
+  color: #ededec;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* ── Edges ── */
+.react-flow__edge-path {
+  stroke: #3d3d3a !important;
+  stroke-width: 1.5 !important;
+}
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #e8a23a !important;
+  stroke-width: 2 !important;
+}
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #e8a23a !important;
+  cursor: pointer;
+}
+
+/* ── Connection line while dragging from a handle ── */
+.react-flow__connection-path {
+  stroke: #e8a23a !important;
+  stroke-width: 1.5 !important;
+  stroke-dasharray: 6 3 !important;
+  animation: dash 0.4s linear infinite;
+}
+@keyframes dash {
+  to { stroke-dashoffset: -9; }
+}
+
+/* ── Handle hover — grows slightly to confirm it's connectable ── */
+.react-flow__handle:hover {
+  transform: scale(1.5) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* ── Handle when a connection is being dragged toward it ── */
+.react-flow__handle.connecting {
+  box-shadow: 0 0 0 4px rgba(232, 162, 58, 0.25) !important;
+}
+
+/* ── Valid drop target glow ── */
+.react-flow__handle.valid {
+  box-shadow: 0 0 0 4px rgba(90, 158, 111, 0.35) !important;
+}
+
+/* ── Selected node highlight ── */
+.react-flow__node.selected > div {
+  border-color: #e8a23a !important;
+  box-shadow: 0 0 0 2px rgba(232, 162, 58, 0.2) !important;
+}
+
+/* ── Controls ── */
+.react-flow__controls-button {
+  background: #1c1c1a !important;
+  border-color: #2e2e2b !important;
+  color: #878680 !important;
+  fill: #878680 !important;
+  border-bottom-color: #2e2e2b !important;
+  transition: background 0.12s, fill 0.12s !important;
+}
+.react-flow__controls-button:hover {
+  background: #2e2e2b !important;
+  fill: #ededec !important;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #111110; }
+::-webkit-scrollbar-thumb { background: #2e2e2b; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3d3d3a; }
+
+/* ── Remove blue focus outline from ReactFlow canvas ── */
+.react-flow {
+  outline: none !important;
+}
+.react-flow__renderer {
+  outline: none !important;
+}
+.react-flow__container {
+  outline: none !important;
+}
+.react-flow__pane {
+  outline: none !important;
+}
+*:focus {
+  outline: none;
+}
